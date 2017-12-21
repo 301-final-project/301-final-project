@@ -1,7 +1,5 @@
 'use strict';
 
-// Todo 1) If elevation is lower - take out ABS
-//      2) Error Handling
 
 let map, infoWindow;
 let pos = {};
@@ -9,6 +7,7 @@ let des = [];
 let elevPos = {};
 
 let searchResults = [];
+
 
 function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl,ed) {
   this.name = name;
@@ -24,9 +23,9 @@ function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl
 // this.distance + (7.92*this.elecomp)
 function initMap(e) {
   e.preventDefault();
-  
+
   mapCreate();
-  
+
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -35,7 +34,6 @@ function initMap(e) {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
-
         // empty the handlebars and results
         searchResults = [];
         $('.search-details').empty();
@@ -91,14 +89,13 @@ function processResults(results, status) {
       searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'http://via.placeholder.com/350x150';
       searchResults[i].openhrs = (results[i].opening_hours) ? results[i].opening_hours : "Not Available";
       }
-     console.log(results);
+     // console.log(results);
   }
   let distance = new google.maps.DistanceMatrixService;
   let statusD = distanceLocation(distance);
   let elevator = new google.maps.ElevationService;
   let statusE = displayLocationElevation(elevator);
 
-  setTimeout(accordPopulate, 500);
   setTimeout(equivdistCalc, 500);
 }
 
@@ -153,7 +150,6 @@ function displayLocationElevation(elevator) {
       statusE = true;
     });
   }
-  console.log(searchResults);
   return statusE;
 }
 
@@ -162,6 +158,10 @@ function equivdistCalc() {
     let naismith_ed = ((((searchResults[i].distance*1.6) + (7.92*(searchResults[i].elevationcomp*.3048/1000))))*0.62);
     searchResults[i].equivdist = Number(naismith_ed.toPrecision(4));
   }
+  searchResults.sort((a, b) => {
+    return a.equivdist - b.equivdist;
+  })
+  setTimeout(accordPopulate, 500);
 }
 // this functions tell you if you are allowed the GPS to be accessed.
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {

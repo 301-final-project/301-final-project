@@ -1,5 +1,6 @@
 'use strict';
 
+
 // builds the according
 function accordPopulate() {
   $('.search-details').show();
