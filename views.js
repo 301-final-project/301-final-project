@@ -42,20 +42,3 @@ $('#search-btn').on('click', function(){
   initMap(event);
   loadingScreen();
 })
-
-
-
-// working code dont fuck with it
-// var acc = $('.accordion');
-//
-// for (let i = 0; i < acc.length; i++) {
-//   acc[i].addEventListener('click', function() {
-//     this.classList.toggle('active');
-//     var panel = this.nextElementSibling;
-//     if (panel.style.display === 'block') {
-//       panel.style.display = 'none';
-//     } else {
-//       panel.style.display = 'block';
-//     }
-//   });
-// }
