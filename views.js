@@ -1,6 +1,5 @@
 'use strict';
-//this is pikachu animation
-var pikachu = $('img').hide();
+
 
 // builds the according
 function accordPopulate() {
