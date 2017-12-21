@@ -7,7 +7,7 @@ function accordPopulate() {
   $('search').empty();
   $('main').show();
   $('img').hide();
-  $('#map').show();
+  // $('#map').show();
   let template = Handlebars.compile($('#results-template').text());
   searchResults.map(place => {$('.search-details').append(template(place));})
 
@@ -36,7 +36,6 @@ function loadingScreen(){
 }
 
 $('#search-btn').on('click', function(){
-
-  loadingScreen();
   initMap(event);
+  loadingScreen();
 })

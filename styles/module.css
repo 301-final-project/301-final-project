@@ -49,6 +49,7 @@ h5 {
   margin: 0 auto;
   display: block;
   font-size: 16px;
+  box-shadow: 5px 8px 5px 6px #ccc;
 }
 
 #search-btn {
@@ -56,6 +57,7 @@ h5 {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
+
 }
 
 .search-details {
@@ -72,8 +74,4 @@ img {
 
 #map {
   margin-bottom: 20px;
-}
-
-.footer {
-  margin-top: 100px;
 }
