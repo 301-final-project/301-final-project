@@ -26,7 +26,7 @@ function initMap(e) {
       lat: 47.6182,
       lng: -122.3519
     },
-    zoom: 16
+    zoom: 15
   });
   infoWindow = new google.maps.InfoWindow();
 
