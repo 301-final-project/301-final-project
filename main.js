@@ -81,7 +81,7 @@ function initMap(e) {
 function processResults(results, status) {
   if (status === google.maps.places.PlacesServiceStatus.OK) {
     for (let i = 0; i < results.length; i++) {
-//    createMarker(results[i])
+      createMarker(results[i])
       des.push({
         lat: results[i].geometry.location.lat(),
         lng: results[i].geometry.location.lng()
