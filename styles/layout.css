@@ -6,7 +6,7 @@
     cursor: pointer;
     padding: 10px;
     width: 100%;
-    border-radius: 10px;
+    border: none;
     text-align: left;
     outline: 1px black solid;
     font-size: 15px;
