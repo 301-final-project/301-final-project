@@ -18,13 +18,17 @@ function accordPopulate() {
       this.classList.toggle('active');
       var panel = this.nextElementSibling;
       if (panel.style.display === 'block') {
-        panel.style.display = 'none';
+        $(this.nextElementSibling).slideUp(200);
       } else {
-        panel.style.display = 'block';
+        $('.panel').slideUp(300);
+        $(this.nextElementSibling).slideDown(200);
       }
     });
   }
+
 }
+
+
 
 // builds the loading screen
 var pikachu = $('img').hide();
@@ -39,3 +43,20 @@ $('#search-btn').on('click', function(){
   initMap(event);
   loadingScreen();
 })
+
+
+
+// working code dont fuck with it
+// var acc = $('.accordion');
+//
+// for (let i = 0; i < acc.length; i++) {
+//   acc[i].addEventListener('click', function() {
+//     this.classList.toggle('active');
+//     var panel = this.nextElementSibling;
+//     if (panel.style.display === 'block') {
+//       panel.style.display = 'none';
+//     } else {
+//       panel.style.display = 'block';
+//     }
+//   });
+// }
