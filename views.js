@@ -28,8 +28,6 @@ function accordPopulate() {
   }
 }
 
-
-
 // builds the loading screen
 var pikachu = $('img').hide();
 function loadingScreen(){
@@ -43,3 +41,22 @@ $('#search-btn').on('click', function(){
   initMap(event);
   loadingScreen();
 })
+
+// the hamburger MENU
+$(document).ready(function(){
+  $('.hamburger-shell').click(function(){
+    console.log('test');
+    $('#menu').slideToggle(300);
+    $('.top').toggleClass('rotate');
+    $('.middle').toggleClass('rotate-back');
+    $('.menu-name').toggleClass('bump');
+    $('.bg-cover').toggleClass('reveal');
+  });
+  $('.bg-cover').click(function(){
+    $('#menu').slideToggle(300);
+    $('.top').toggleClass('rotate');
+    $('.middle').toggleClass('rotate-back');
+    $('.menu-name').toggleClass('bump');
+    $('.bg-cover').toggleClass('reveal');
+  })
+});
