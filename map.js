@@ -1,5 +1,5 @@
 function mapCreate(){
-    //co-ordinates of Seattle 
+    //co-ordinates of Seattle
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 47.6062,
@@ -8,7 +8,7 @@ function mapCreate(){
         zoom: 16,
         disableDefaultUI: true,
         draggable: false,
-        
+
         styles: [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},

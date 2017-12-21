@@ -28,8 +28,6 @@ function accordPopulate() {
   }
 }
 
-
-
 // builds the loading screen
 var pikachu = $('img').hide();
 function loadingScreen(){
@@ -46,7 +44,6 @@ $('#search-btn').on('click', function(){
 
 
 
-// working code dont fuck with it
 // var acc = $('.accordion');
 //
 // for (let i = 0; i < acc.length; i++) {
