@@ -42,6 +42,10 @@ $('#search-btn').on('click', function(){
   loadingScreen();
 })
 
+$(".about").on('click', function(){
+  $('.container').hide();
+  $('#us').fadeIn(1000);
+})
 
 
 // var acc = $('.accordion');
