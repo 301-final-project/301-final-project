@@ -55,6 +55,7 @@ function initMap(e) {
 
         let request = {
           location: pos,
+          key='AIzaSyCFvCBTC4gncWVqiOHfjbPWRQsmI9DXFP4',
           // rankBy: google.maps.places.RankBy.DISTANCE,
           radius: '1000',
           // name: [$('#search-name').val()],//search by name
