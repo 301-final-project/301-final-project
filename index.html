@@ -5,51 +5,60 @@
   <title>Geolocation</title>
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
-
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href=styles/reset.css>
   <link rel="stylesheet" type="text/css" href=styles/base.css>
   <link rel="stylesheet" type="text/css" href="styles/layout.css">
   <link rel="stylesheet" type="text/css" href="styles/module.css">
+  <link rel="stylesheet" type="text/css" href="styles/icons/style.css">
   <title>Elevation Info</title>
 
-  <script id="results-template" type="text/x-handlebars-template">
-    <button class="accordion">{{name}}</button>
-    <div class="panel">
-      <div>Distance: {{distance}}</div>
-      <div>Elevation: {{elevation}}</div>
-      <div>Rating: {{rating}}</div>
-    </div>
-  </script>
+<script id="results-template" type="text/x-handlebars-template">
+  <button class="accordion"><h1>{{name}}</h1>
+  <label>Distance to location: {{distance}}</button>
+  <div class="panel">
+    <div><img class="search-img" src="{{imgUrl}}"></div>
+    <div><span class="icon-office"></span><h2> {{address}}</h2></div>
+    <div><span class="icon-arrow-up-right2"></span><h2> The elevation difference is: {{elevationcomp}} feet</h2></div>
+    <div><span class="last-div icon-bullhorn"></span><h2> Rating: {{rating}}</h2></div>
+  </div>
+</script>
 
 </head>
 
 <body>
-  <main>
-    <header>
-      <nav>
-        <input type="checkbox" id="css-toggle-menu" name="css-toggle-menu">
-        <ul class="main">
-          <li><a href="">Home</a></li>
-          <li><a href="">Services</a></li>
-          <li><a href="">Contact</a></li>
-        </ul>
-        <label for="css-toggle-menu" id="css-toggle-menu"></label>
-      </nav>
-    </header>
 
-    <h5>Hey! This is Eazy Walk here you can search for anything from a coffee shop to a small business to find the most efficient route</h5>
-    <form>
-      <p id="google-search">Your Search</p>
-      <input id="search" placeholder="Type here">
-      <button id="google-button">Search</button>
+  <header>
+    <!-- <nav>
+      <input type="checkbox" id="css-toggle-menu" name="css-toggle-menu">
+      <ul class="main">
+        <li><a href="">Home</a></li>
+        <li><a href="">Services</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+      <label for="css-toggle-menu" id="css-toggle-menu"></label>
+   </nav> -->
+  </header>
+
+  <main class="main">
+    <h5 id="info">Hey! This is Eazy Walk here you can search for anything from a coffee shop to a small business to find the most efficient route</h5>
+    <form id="search-from">
+      <input id="search" placeholder="Search Here">
+      <button id="search-btn">Start your Search</button>
     </form>
-  </main>
-  <div class="search-details"></div>
-  <img style="margin-left:42%; margin-top:15%;" src="https://i.imgur.com/ZbT5QKr.gif">
 
+  </main>
+  
+  <div class="search-details"></div>
+  <div id="pokemon">
+    <img src="img/loading.gif">
+  </div>
+
+  <!-- div for the map image -->
+  <div id="map"></div>
 
   <!-- footer -->
-  <div class="footer">
+  <!-- <div class="footer">
     <p>
       Heath, Hector, George and Sunitha <strong>For Final Project 301</strong>.</p>
     <div class="icons">
@@ -58,16 +67,16 @@
       <a href="#" class="fa fa-facebook"></a>
       <a href="#" class="fa fa-twitter"></a>
     </div>
-  </div>
-
-  <!-- div for the map image -->
-  <div id="map"></div>
+  </div> -->
 
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFvCBTC4gncWVqiOHfjbPWRQsmI9DXFP4&libraries=places"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
   <script type="text/javascript" src="views.js"></script>
+  <script type="text/javascript" src="map.js"></script>
   <script type="text/javascript" src="main.js"></script>
+
+
 </body>
 
 </html>

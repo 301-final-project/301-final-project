@@ -10,7 +10,7 @@ html {
 body {
   font-size: 1.8rem;
   min-height: 100vh;
-  background-color: #A1D8FF;
+  background-color: white;
 }
 
 h1 {
@@ -22,20 +22,13 @@ h2 {
   font-size: 1.6rem;
 }
 
-
-p {
-  display: inline-block;
-  font-size: 17px;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
 header {
   position: relative;
 }
 
 main {
   padding: 2rem;
+  margin-top: 30px;
 }
 
 /************** NAVIGATION ***************/
@@ -198,7 +191,10 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
   background-color: white;
+=======
+>>>>>>> 4b0deade90121729a60da52f76879e42f0f47727
 }
 
 

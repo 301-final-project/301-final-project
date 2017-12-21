@@ -2,37 +2,42 @@
 //this is pikachu animation
 var pikachu = $('img').hide();
 
-function loadingScreen(){
-  $('main').hide()
-  $('img').css('display', '');
-  $('#map').hide();
-}
-
+// builds the according
 function accordPopulate() {
-  console.log(searchResults);
-  $('main').show()
-  $('img').css('display', 'none');
-
+  $('.search-details').show();
+  $('#info').hide();
+  $('search').empty();
+  $('main').show();
+  $('img').hide();
+  // $('#map').show();
   let template = Handlebars.compile($('#results-template').text());
-  searchResults.map(place => {console.log(searchResults[0].distance);
-    $('.search-details').append(template(place));})
+  searchResults.map(place => {$('.search-details').append(template(place));})
 
-  var acc = document.getElementsByClassName("accordion");
+  var acc = $('.accordion');
 
   for (let i = 0; i < acc.length; i++) {
-    acc[i].addEventListener("click", function() {
-      this.classList.toggle("active");
+    acc[i].addEventListener('click', function() {
+      this.classList.toggle('active');
       var panel = this.nextElementSibling;
-      if (panel.style.display === "block") {
-        panel.style.display = "none";
+      if (panel.style.display === 'block') {
+        panel.style.display = 'none';
       } else {
-        panel.style.display = "block";
+        panel.style.display = 'block';
       }
     });
   }
 }
 
-$('#google-button').on('click', function(){
-  loadingScreen();
+// builds the loading screen
+var pikachu = $('img').hide();
+function loadingScreen(){
+  $('main').hide()
+  $('img').show();
+  $('.search-details').hide();
+  // $('#map').hide();
+}
+
+$('#search-btn').on('click', function(){
   initMap(event);
+  loadingScreen();
 })
