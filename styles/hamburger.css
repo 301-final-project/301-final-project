@@ -1,5 +1,5 @@
 .hamburger-shell {
-    margin: 0;
+    margin: 5;
     position: fixed;
     overflow: hidden;
     width: 70px;
@@ -7,6 +7,11 @@
     overflow: auto;
     left: calc(100% - 50px);
     top: 0px;
+}
+
+.menu-name:hover {
+  color: red;
+  cursor: pointer;
 }
 
 .top, .middle{
@@ -28,7 +33,7 @@
     top: -110px;
     color: black;
     display: none;
-    margin: 160px;
+    margin: 165px;
     text-decoration: none;
     font-family: Arial, sans-serif;
     font-weight: 60;
