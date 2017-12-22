@@ -156,7 +156,6 @@ function displayLocationElevation(elevator) {
   return statusE;
 }
 
-
 function equivdistCalc() {
   for (let i = 0; i < searchResults.length; i++) {
     let naismith_ed = ((((searchResults[i].distance*1.6) + (7.92*(searchResults[i].elevationcomp*.3048/1000))))*0.62);
@@ -166,6 +165,8 @@ function equivdistCalc() {
     return a.equivdist - b.equivdist;
   })
   setTimeout(accordPopulate, 1000);
+  checkSearchResultIsNone();
+  historyLog();
 }
 // this functions tell you if you are allowed the GPS to be accessed.
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -175,4 +176,17 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
 
+}
+
+function checkSearchResultIsNone(){
+  if (searchResults.length === 0){
+    alert('Outside of walking distance.');
+  }
+}
+
+function historyLog(){
+  let now = Date().split(' ').slice(0, 4).join(' ');
+  searchHistory.forEach(search => {
+    console.log(`${now}: ${search}`)
+  });
 }

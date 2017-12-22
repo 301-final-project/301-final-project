@@ -43,7 +43,6 @@ $('#search-btn').on('click', function(){
   loadingScreen();
 })
 
-
 // the hamburger MENU
 $(document).ready(function(){
   $('.hamburger-shell').click(function(){
@@ -68,13 +67,12 @@ $('.about').on('click', function(){
   $('.us').fadeIn(1000);
 })
 
+
 // for main page
 $('.home').on('click', function(){
   location.reload(); // this is for reseting the map
   // $('.container').hide();
   // $('#pokemon').hide();
   // $('.main').show();
-
-
-
 })
+
