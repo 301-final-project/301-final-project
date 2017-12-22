@@ -1,3 +1,32 @@
+/* for accordion results */
+.accordion {
+
+    background-color: white;
+    color: #444;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: 1px black solid;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.active, .accordion:hover {
+    background-color: white;
+}
+
+.panel {
+  display: none;
+  padding: 0 18px;
+  background-color: white;
+  outline: 1px black solid;
+  margin: 0 auto;
+}
+
+/* the result images */
 .search-img {
   padding-top: 5px;
   padding-bottom: 10px;
@@ -8,39 +37,32 @@
   margin: 0 auto;
 }
 
-h1 {
-  font-size: 16px;
-  margin-top: 0px;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-label {
-  font-size: 12px;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
-h2 {
-  font-size: 12px;
-  text-transform: uppercase;
-  display: inline-block;
-  font-family: 'Josefin Sans', sans-serif;
-}
-
 .last-div {
   margin-bottom: 5px;
   padding-bottom: 5px;
 }
 
-span {
-  padding-right: 15px;
+.us {
+    width: 100%;
+    height: auto;
+    display: block;
+    text-align: center;
+    margin-bottom: 10px;
 }
 
-h5 {
-  font: black;
-  font-family: 'Josefin Sans', sans-serif;
-  margin-bottom: 30px;
-  text-align: center;
-  line-height: 20px;
+.search-details {
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.accordion:active {
+  border-color: blue;
+}
+
+.header-bar {
+  height: 80px;
+  box-shadow: 0px 2px 5px 2px #ccc;
 }
 
 #search {
@@ -89,12 +111,6 @@ h5 {
   color: black;
 }
 
-.search-details {
-  width: 80%;
-  margin: 0 auto;
-  margin-bottom: 20px;
-}
-
 #pokemon {
   margin: 0 auto;
   display: block;
@@ -109,25 +125,11 @@ h5 {
   width: 90%;
 }
 
-a {
-  font-size: 12px;
-  color: red;
-}
-
-.accordion:active {
-  border-color: blue;
-}
-
 #info {
   width: 70%;
   margin: 0 auto;
   margin-top: 49px;
   margin-bottom: 20px;
-}
-
-.header-bar {
-  height: 80px;
-  box-shadow: 0px 2px 5px 2px #ccc;
 }
 
 #logo {
@@ -145,11 +147,32 @@ a {
   display: inline-block;
 }
 
-h4 {
-  font-size: 3vw;
-  text-transform: capitalize;
-  letter-spacing: 5px;
-  font-family: 'Josefin Sans', sans-serif;
+#map {
+  height: 60%;
+}
+
+
+#searchHistory {
+  display: block;
+  margin: 20px auto;
+  width: 20%;
+}
+
+#google-search {
+  margin: 0 auto;
+}
+
+#search {
+  width: 30%;
+  margin-top: 2.5%;
+  margin-bottom: 2.5%;
+  margin-left: 33%;
+  padding: 5px;
+  text-align: center;
+}
+
+#side-image {
+  display: none;
 }
 
 #searchHistory {
