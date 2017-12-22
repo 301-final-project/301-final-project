@@ -57,7 +57,7 @@ function initMap(e) {
         let request = {
           location: pos,
           // rankBy: google.maps.places.RankBy.DISTANCE,
-          radius: '700', //in meters
+          radius: '800', //in meters
           // name: [$('#search-name').val()],//search by name
           // type: [$('#search-type').val()],// search by type
           keyword: [$('#search').val()]// search by keyword
