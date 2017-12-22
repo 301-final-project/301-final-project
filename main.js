@@ -24,7 +24,7 @@ function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl
 function initMap(e) {
   e.preventDefault();
 
-  mapCreate();
+  app.mapMake.mapCreate();
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
