@@ -84,7 +84,7 @@ $('.home').on('click', function(){
 $('.searchHistory').on('click', function(){
   $('.container').hide();
   $('#searchHistory').empty();
-  $('#searchHistory').html(searchHistory);
+  $('#searchHistory').html(localStorage.getItem("searchHistory"));
   $('#searchHistory').fadeIn(1000);
 })
 

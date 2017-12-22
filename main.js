@@ -8,7 +8,7 @@ let elevPos = {};
 let statusE = false;
 let statusD = false;
 
-let searchHistory = '';
+localStorage.setItem("searchHistory",'');
 let searchResults = [];
 
 function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl,ed) {
@@ -64,7 +64,8 @@ function initMap(e) {
 
         // For every input log to History Tab
         let now = Date().split(' ').slice(0, 5).join(' ');
-        searchHistory += `${now}- ${$('#search').val()} <br> `;
+//        searchHistory += `${now}- ${$('#search').val()} <br> `;
+        localStorage.searchHistory += `${now}- ${$('#search').val()} <br> `;
 
         let service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, processResults);
