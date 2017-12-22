@@ -11,7 +11,7 @@ let statusD = false;
 localStorage.setItem("searchHistory",'');
 let searchResults = [];
 
-function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl,ed) {
+function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp,timetaken, imgUrl,ed) {
   this.name = name;
   this.address = add;
   this.openhrs = openh
@@ -19,6 +19,7 @@ function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl
   this.elevation = ele;
   this.rating = rating;
   this.elevationcomp = elecomp;
+  this.duration = timetaken;
   this.imgUrl = imgUrl;
   this.equivdist = ed;
 }
@@ -64,7 +65,6 @@ function initMap(e) {
 
         // For every input log to History Tab
         let now = Date().split(' ').slice(0, 5).join(' ');
-//        searchHistory += `${now}- ${$('#search').val()} <br> `;
         localStorage.searchHistory += `${now}- ${$('#search').val()} <br> `;
 
         let service = new google.maps.places.PlacesService(map);
@@ -91,11 +91,11 @@ function processResults(results, status) {
         lat: results[i].geometry.location.lat(),
         lng: results[i].geometry.location.lng()
       })
-      searchResults.push(new SearchResultsObject(results[i].name, results[i].vicinity, null, 0, 0, results[i].rating,0));
+      searchResults.push(new SearchResultsObject(results[i].name, results[i].vicinity, null, 0, 0, results[i].rating,0,0));
       searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'img/error.gif';
       searchResults[i].openhrs = (results[i].opening_hours) ? results[i].opening_hours : 'Not Available';
     }
-    // console.log(results);
+     console.log(results);
   }
   let distance = new google.maps.DistanceMatrixService;
   statusD = distanceLocation(distance);
@@ -136,22 +136,26 @@ function distanceLocation(distance) {
       travelMode: google.maps.TravelMode.DRIVING,
       unitSystem: google.maps.UnitSystem.IMPERIAL,
     }, function(results, err){
-      searchResults[i].distance =  Number((results.rows[0].elements[0].distance.text).substr(0,(results.rows[0].elements[0].distance.text).length-3));
-      if (i == searchResults.length) {statusD = true;} ;
+        searchResults[i].distance =  Number((results.rows[0].elements[0].distance.text).substr(0,(results.rows[0].elements[0].distance.text).length-3));
+        searchResults[i].duration =  Number((results.rows[0].elements[0].duration.text).substr(0,(results.rows[0].elements[0].duration.text).length-5));
+        if (i == searchResults.length) {statusD = true;} ;
     })
-  }
   return statusD;
+  }
 }
 
 // calculate elevation
 function displayLocationElevation(elevator) {
-  for (let i = 0; i < searchResults.length; i++) {
+  for (let j = 0; j < searchResults.length; j++) {
     elevator.getElevationForLocations({
-      locations: [des[i]],
+      locations: [des[j]],
     }, function(response, err){
-      searchResults[i].elevation =  Math.floor(response[0].elevation*3.28);
-      searchResults[i].elevationcomp =  Math.abs(searchResults[i].elevation - elevPos);
-      if (i == searchResults.length) {statusE = true;} ;
+//      if (status == 'OK') {
+//        console.log('elev', response);
+        searchResults[j].elevation =  Math.floor(response[0].elevation*3.28);
+        searchResults[j].elevationcomp =  searchResults[j].elevation - elevPos;
+        if (j == searchResults.length) {statusE = true;} ;
+//        }
     });
   }
   return statusE;
@@ -159,8 +163,9 @@ function displayLocationElevation(elevator) {
 
 function equivdistCalc() {
   for (let i = 0; i < searchResults.length; i++) {
-    let naismith_ed = ((((searchResults[i].distance*1.6) + (7.92*(searchResults[i].elevationcomp*.3048/1000))))*0.62);
+    let naismith_ed = ((((searchResults[i].distance*1.6) + (8*(Math.abs(searchResults[i].elevationcomp)*.3048/1000))))*0.62);
     searchResults[i].equivdist = Number(naismith_ed.toPrecision(2));
+//    console.log('D-',searchResults[i].distance, 'E-',searchResults[i].elevationcomp, 'ED-',searchResults[i].equivdist);
   }
   searchResults.sort((a, b) => {return a.equivdist - b.equivdist;})
 
