@@ -89,7 +89,7 @@ function processResults(results, status) {
         lng: results[i].geometry.location.lng()
       })
       searchResults.push(new SearchResultsObject(results[i].name, results[i].vicinity, null, 0, 0, results[i].rating,0));
-      searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'http://via.placeholder.com/350x150';
+      searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'img/notfound.jpg';
       searchResults[i].openhrs = (results[i].opening_hours) ? results[i].opening_hours : 'Not Available';
     }
     // console.log(results);
