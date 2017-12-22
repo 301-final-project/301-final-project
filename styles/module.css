@@ -177,5 +177,6 @@
 #searchHistory {
   display: block;
   margin: 20px auto;
+  line-height: 25px;
   width: 55%;
 }
