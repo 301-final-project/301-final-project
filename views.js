@@ -9,6 +9,7 @@ function accordPopulate() {
   $('main').show();
   $('#pokemon').hide();
   $('#searchHistory').hide();
+  $('#side-image').show();
 
   let template = Handlebars.compile($('#results-template').text());
   searchResults.map(place => {$('.search-details').append(template(place));})
@@ -30,9 +31,10 @@ function accordPopulate() {
 }
 
 // builds the loading screen
-var pikachu = $('#pokemon').hide();
+var pikachu = $('#pokemon, #side-image').hide();
 function loadingScreen(){
   $('#pokemon').show();
+  $('#side-image').hide();
   $('main').hide()
   $('.search-details').hide();
   $('.us').hide();
@@ -53,7 +55,7 @@ $(document).ready(function(){
     $('.menu-name').toggleClass('bump');
     $('.bg-cover').toggleClass('reveal');
   });
-  $('.bg-cover').click(function(){
+  $('.searchHistory, .about, .home').click(function(){
     $('#menu').slideToggle(300);
     $('.top').toggleClass('rotate');
     $('.middle').toggleClass('rotate-back');
@@ -71,10 +73,12 @@ $('.about').on('click', function(){
 
 // for main page
 $('.home').on('click', function(){
-  location.reload(); // this is for reseting the map
-  // $('.container').hide();
-  // $('#pokemon').hide();
-  // $('.main').show();
+  // location.reload(); // this is for reseting the map
+  $('.container').hide();
+  $('#pokemon').hide();
+  $('.main').show();
+  $('#side-image').hide();
+  app.mapMake.mapCreate();
 })
 
 // for the searchHistory page

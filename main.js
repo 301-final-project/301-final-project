@@ -6,7 +6,7 @@ let pos = {};
 let des = [];
 let elevPos = {};
 
-let searchHistory = [];
+let searchHistory = '';
 let searchResults = [];
 
 function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl,ed) {
@@ -24,7 +24,7 @@ function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl
 function initMap(e) {
   e.preventDefault();
 
-  mapCreate();
+  app.mapMake.mapCreate();
 
   // Try HTML5 geolocation.
   if (navigator.geolocation) {
@@ -88,7 +88,7 @@ function processResults(results, status) {
         lng: results[i].geometry.location.lng()
       })
       searchResults.push(new SearchResultsObject(results[i].name, results[i].vicinity, null, 0, 0, results[i].rating,0));
-      searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'img/notfound.jpg';
+      searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'img/error.gif';
       searchResults[i].openhrs = (results[i].opening_hours) ? results[i].opening_hours : 'Not Available';
     }
     // console.log(results);
