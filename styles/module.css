@@ -170,3 +170,7 @@
   padding: 5px;
   text-align: center;
 }
+
+#side-image {
+  display: none;
+}

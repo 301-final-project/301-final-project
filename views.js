@@ -9,6 +9,7 @@ function accordPopulate() {
   $('main').show();
   $('#pokemon').hide();
   $('#searchHistory').hide();
+  $('#side-image').show();
 
   let template = Handlebars.compile($('#results-template').text());
   searchResults.map(place => {$('.search-details').append(template(place));})
@@ -30,9 +31,10 @@ function accordPopulate() {
 }
 
 // builds the loading screen
-var pikachu = $('#pokemon').hide();
+var pikachu = $('#pokemon, #side-image').hide();
 function loadingScreen(){
   $('#pokemon').show();
+  $('#side-image').hide();
   $('main').hide()
   $('.search-details').hide();
   $('.us').hide();
@@ -75,6 +77,7 @@ $('.home').on('click', function(){
   $('.container').hide();
   $('#pokemon').hide();
   $('.main').show();
+  $('#side-image').hide();
   app.mapMake.mapCreate();
 })
 
