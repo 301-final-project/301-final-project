@@ -7,12 +7,12 @@ mapMake.mapCreate = function(){
   //co-ordinates of Seattle
     map = new google.maps.Map(document.getElementById('map'), {
       center: {
-        lat: 47.6062,
-        lng: -122.3321
+        lat: 47.6182,
+        lng: -122.3519
       },
-      zoom: 16,
+      zoom: 15,
       disableDefaultUI: true,
-      draggable: false,
+      draggable: true,
 
       styles: [
         {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
