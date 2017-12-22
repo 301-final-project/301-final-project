@@ -87,5 +87,8 @@ $('.searchHistory').on('click', function(){
   $('#searchHistory').empty();
   $('#searchHistory').html(searchHistory);
   $('#searchHistory').fadeIn(1000);
-
 })
+
+$("#search").click(function() {
+  this.value = '';
+});
