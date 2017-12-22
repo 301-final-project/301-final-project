@@ -57,7 +57,7 @@ function initMap(e) {
         let request = {
           location: pos,
           // rankBy: google.maps.places.RankBy.DISTANCE,
-          radius: '2000', //in meters
+          radius: '800', //in meters
           // name: [$('#search-name').val()],//search by name
           // type: [$('#search-type').val()],// search by type
           keyword: [$('#search').val()]// search by keyword
@@ -103,7 +103,7 @@ function processResults(results, status) {
   let elevator = new google.maps.ElevationService;
   statusE = displayLocationElevation(elevator);
 
-  setTimeout(equivdistCalc, 4000);
+  setTimeout(equivdistCalc, 3000);
 }
 
 function centerMarker() {

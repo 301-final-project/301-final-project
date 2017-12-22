@@ -1,6 +1,5 @@
 /* for accordion results */
 .accordion {
-
     background-color: white;
     color: #444;
     font-weight: bold;
@@ -15,7 +14,6 @@
 }
 
 .active, .accordion:hover {
-    background-color: white;
 }
 
 .panel {
@@ -54,6 +52,7 @@
   width: 75%;
   margin: 0 auto;
   margin-bottom: 20px;
+  box-shadow: 5px 5px 10px 0px #ccc;
 }
 
 .accordion:active {
@@ -76,6 +75,7 @@
   border: 0px solid;
   box-shadow: 0px 2px 5px 0px #ccc;
   transition: 250ms;
+  border-width: 1px thin;
   border-radius: 4px;
   padding: 5px;
   text-align: center;
