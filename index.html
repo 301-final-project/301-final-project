@@ -14,17 +14,19 @@
   <link rel="stylesheet" type="text/css" href="styles/hamburger.css">
   <title>Elevation Info</title>
 
-<script id="results-template" type="text/x-handlebars-template">
+  <script id="results-template" type="text/x-handlebars-template">
 
-  <button class="accordion"><h1>{{name}}</h1>
+    <button class="accordion"><h1>{{name}}</h1>
   <label class="section-name">Distance to location: {{equivdist}} Miles</label></button>
-  <div class="panel">
-    <div><img class="search-img" src="{{imgUrl}}"></div>
-    <div><span class="icon-office"></span><a href="https://www.google.com/maps/?q={{address}}">{{address}}</a></div>
-    <div><span class="icon-arrow-up-right2"></span><h2> The elevation difference is: {{elevationcomp}} feet</h2></div>
-    <div><span class="last-div icon-bullhorn"></span><h2> Rating: {{rating}}</h2></div>
-  </div>
-</script>
+    <div class="panel">
+      <div><img class="search-img" src="{{imgUrl}}"></div>
+      <div><span class="icon-office"></span><a href="https://www.google.com/maps/?q={{address}}">{{address}}</a></div>
+      <div><span class="icon-arrow-up-right2"></span>
+        <h2> The elevation difference is: {{elevationcomp}} feet</h2></div>
+      <div><span class="last-div icon-bullhorn"></span>
+        <h2> Rating: {{rating}}</h2></div>
+    </div>
+  </script>
 
 </head>
 
@@ -39,22 +41,29 @@
   </section>
 
   <div class="bg-cover" class="none"></div>
-    <a class="hamburger-shell">
-      <div class="hamb top menu"></div>
-      <div class="hamb middle"></div>
-      <div class="menu-name">MENU</div>
-        <ul id="menu">
-          <a href="#"> <li>Home</li></a>
-          <a href="#"> <li>Past Search</li></a>
-          <a class="about"> <li>About Us</li></a>
-        </ul>
-    </a>
+  <a class="hamburger-shell">
+    <div class="hamb top menu"></div>
+    <div class="hamb middle"></div>
+    <div class="menu-name">MENU</div>
+    <ul id="menu">
+      <a href="#">
+        <li>Home</li>
+      </a>
+      <a href="#">
+        <li>Past Search</li>
+      </a>
+      <a class="about">
+        <li>About Us</li>
+      </a>
+    </ul>
+  </a>
 </header>
+
 <body>
 
 
   <main class="main container">
-  
+
     <h5 id="info">Hey! This is Eazy Walk here you can search for anything from a coffee shop to a small business to find the most efficient route</h5>
     <form id="search-from">
       <input id="search" placeholder="Search Here">
