@@ -7,7 +7,7 @@ function accordPopulate() {
   $('#info').hide();
   $('search').empty();
   $('main').show();
-  $('img').hide();
+  $('#pokemon').hide();
   // $('#map').show();
   let template = Handlebars.compile($('#results-template').text());
   searchResults.map(place => {$('.search-details').append(template(place));})
@@ -32,7 +32,7 @@ function accordPopulate() {
 var pikachu = $('img').hide();
 function loadingScreen(){
   $('main').hide()
-  $('img').show();
+  $('#pokemon').show();
   $('.search-details').hide();
   // $('#map').hide();
 }
