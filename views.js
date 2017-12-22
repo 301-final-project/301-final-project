@@ -44,7 +44,7 @@ $('#search-btn').on('click', function(){
 
 $(".about").on('click', function(){
   $('.container').hide();
-  $('#us').fadeIn(1000);
+  $('.us').fadeIn(1000);
 })
 
 
