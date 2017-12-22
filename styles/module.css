@@ -151,3 +151,9 @@ h4 {
   letter-spacing: 5px;
   font-family: 'Josefin Sans', sans-serif;
 }
+
+#searchHistory {
+  display: block;
+  margin: 20px auto;
+  width: 55%;
+}
