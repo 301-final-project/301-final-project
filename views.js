@@ -8,6 +8,7 @@ function accordPopulate() {
   $('search').empty();
   $('main').show();
   $('#pokemon').hide();
+  $('#searchHistory').hide();
 
   let template = Handlebars.compile($('#results-template').text());
   searchResults.map(place => {$('.search-details').append(template(place));})
@@ -76,3 +77,12 @@ $('.home').on('click', function(){
   // $('.main').show();
 })
 
+// for the searchHistory page
+$('.searchHistory').on('click', function(){
+  $('.container').hide();
+  $('#searchHistory').empty();
+  $('#searchHistory').append(JSON.parse(localStorage.getItem('searchHistory').toLowerCase() ));
+
+  $('#searchHistory').fadeIn(1000);
+
+})

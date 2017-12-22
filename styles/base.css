@@ -200,3 +200,10 @@ html, body {
 #map {
   height: 60%;
 }
+
+
+#searchHistory {
+  display: block;
+  margin: 20px auto;
+  width: 20%;
+}
