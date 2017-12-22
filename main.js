@@ -62,7 +62,6 @@ function initMap(e) {
 
         searchHistory.push($('#search').val());
         localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-        $('#searchHistory').append(JSON.parse(localStorage.getItem('searchHistory')));
 
         let service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, processResults);
