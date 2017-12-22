@@ -82,13 +82,6 @@ $('.searchHistory').on('click', function(){
   $('.container').hide();
   $('#searchHistory').empty();
   $('#searchHistory').html(searchHistory);
-  // searchHistory.forEach(search => {
-  //   // $('#searchHistory').html(search + '<br>');
-  //   $('#searchHistory').html('subway <br> starbucks <br>')
-  //   // $('#searchHistory').html(`${historyLog()}: ${search}` + '<br>')
-  // });
-  // $('#searchHistory').append(JSON.parse(localStorage.getItem('searchHistory').toLowerCase() ));
-
   $('#searchHistory').fadeIn(1000);
 
 })

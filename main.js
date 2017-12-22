@@ -60,6 +60,7 @@ function initMap(e) {
           keyword: [$('#search').val()]// search by keyword
         };
 
+        // For every input log to History Tab
         searchHistory += `${historyLog()}- ${$('#search').val()} <br> `;
 
         let service = new google.maps.places.PlacesService(map);
