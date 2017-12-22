@@ -99,7 +99,7 @@ function processResults(results, status) {
   let elevator = new google.maps.ElevationService;
   let statusE = displayLocationElevation(elevator);
 
-  setTimeout(equivdistCalc, 500);
+  setTimeout(equivdistCalc, 1000);
 }
 
 function centerMarker() {
@@ -165,7 +165,7 @@ function equivdistCalc() {
   searchResults.sort((a, b) => {
     return a.equivdist - b.equivdist;
   })
-  setTimeout(accordPopulate, 500);
+  setTimeout(accordPopulate, 1000);
 }
 // this functions tell you if you are allowed the GPS to be accessed.
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
