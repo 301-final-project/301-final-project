@@ -60,8 +60,8 @@ function initMap(e) {
           keyword: [$('#search').val()]// search by keyword
         };
 
-        searchHistory.push($('#search').val());
-        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+        // For every input log to History Tab
+        searchHistory += `${historyLog()}- ${$('#search').val()} <br> `;
 
         let service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, processResults);
@@ -184,8 +184,6 @@ function checkSearchResultIsNone(){
 }
 
 function historyLog(){
-  let now = Date().split(' ').slice(0, 4).join(' ');
-  searchHistory.forEach(search => {
-    console.log(`${now}: ${search}`)
-  });
+  let now = Date().split(' ').slice(0, 5).join(' ');
+  return now;
 }

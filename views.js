@@ -85,8 +85,7 @@ $('.home').on('click', function(){
 $('.searchHistory').on('click', function(){
   $('.container').hide();
   $('#searchHistory').empty();
-  $('#searchHistory').append(JSON.parse(localStorage.getItem('searchHistory').toLowerCase() ));
-
+  $('#searchHistory').html(searchHistory);
   $('#searchHistory').fadeIn(1000);
 
 })

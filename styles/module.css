@@ -174,3 +174,9 @@
 #side-image {
   display: none;
 }
+
+#searchHistory {
+  display: block;
+  margin: 20px auto;
+  width: 55%;
+}
