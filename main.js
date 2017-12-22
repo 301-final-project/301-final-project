@@ -54,7 +54,7 @@ function initMap(e) {
         let request = {
           location: pos,
           // rankBy: google.maps.places.RankBy.DISTANCE,
-          radius: '1000',
+          radius: '500',
           // name: [$('#search-name').val()],//search by name
           // type: [$('#search-type').val()],// search by type
           keyword: [$('#search').val()]// search by keyword
@@ -90,9 +90,9 @@ function processResults(results, status) {
       })
       searchResults.push(new SearchResultsObject(results[i].name, results[i].vicinity, null, 0, 0, results[i].rating,0));
       searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'http://via.placeholder.com/350x150';
-      searchResults[i].openhrs = (results[i].opening_hours) ? results[i].opening_hours : "Not Available";
-      }
-     // console.log(results);
+      searchResults[i].openhrs = (results[i].opening_hours) ? results[i].opening_hours : 'Not Available';
+    }
+    // console.log(results);
   }
   let distance = new google.maps.DistanceMatrixService;
   let statusD = distanceLocation(distance);
@@ -160,7 +160,7 @@ function displayLocationElevation(elevator) {
 function equivdistCalc() {
   for (let i = 0; i < searchResults.length; i++) {
     let naismith_ed = ((((searchResults[i].distance*1.6) + (7.92*(searchResults[i].elevationcomp*.3048/1000))))*0.62);
-    searchResults[i].equivdist = Number(naismith_ed.toPrecision(4));
+    searchResults[i].equivdist = Number(naismith_ed.toPrecision(2));
   }
   searchResults.sort((a, b) => {
     return a.equivdist - b.equivdist;
