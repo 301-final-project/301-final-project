@@ -8,7 +8,7 @@ function accordPopulate() {
   $('search').empty();
   $('main').show();
   $('#pokemon').hide();
-  // $('#map').show();
+
   let template = Handlebars.compile($('#results-template').text());
   searchResults.map(place => {$('.search-details').append(template(place));})
 
@@ -29,12 +29,13 @@ function accordPopulate() {
 }
 
 // builds the loading screen
-var pikachu = $('img').hide();
+var pikachu = $('#pokemon').hide();
 function loadingScreen(){
-  $('main').hide()
   $('#pokemon').show();
+  $('main').hide()
   $('.search-details').hide();
-  // $('#map').hide();
+  $('.us').hide();
+  $('#map').show();
 }
 
 $('#search-btn').on('click', function(){
@@ -46,7 +47,6 @@ $('#search-btn').on('click', function(){
 // the hamburger MENU
 $(document).ready(function(){
   $('.hamburger-shell').click(function(){
-    console.log('test');
     $('#menu').slideToggle(300);
     $('.top').toggleClass('rotate');
     $('.middle').toggleClass('rotate-back');
@@ -62,10 +62,19 @@ $(document).ready(function(){
   })
 });
 
-$(".about").on('click', function(){
+// for the about page
+$('.about').on('click', function(){
   $('.container').hide();
   $('.us').fadeIn(1000);
 })
 
+// for main page
+$('.home').on('click', function(){
+  location.reload(); // this is for reseting the map
+  // $('.container').hide();
+  // $('#pokemon').hide();
+  // $('.main').show();
 
 
+
+})

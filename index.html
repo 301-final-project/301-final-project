@@ -40,21 +40,21 @@
 
   <div class="bg-cover" class="none"></div>
     <a class="hamburger-shell">
-      <div class="hamb top menu"></div>
+      <div class="hamb top menu"><</div>
       <div class="hamb middle"></div>
       <div class="menu-name">MENU</div>
         <ul id="menu">
-          <a href="#"> <li>Home</li></a>
-          <a href="#"> <li>Past Search</li></a>
-          <a href="#"> <li>About Us</li></a>
+          <a class="home"> <li>Home</li></a>
+          <a class="home"> <li>Past Search</li></a>
+          <a class="about"> <li>About Us</li></a>
         </ul>
     </a>
 </header>
 <body>
 
 
-  <main class="main">
-  
+  <main class="main container">
+
     <h5 id="info">Hey! This is Eazy Walk here you can search for anything from a coffee shop to a small business to find the most efficient route</h5>
     <form id="search-from">
       <input id="search" placeholder="Search Here">
@@ -64,25 +64,19 @@
   </main>
 
 
-  <div class="search-details container"></div>
-  <div id="pokemon"><img src="img/loading.gif"></div>
-  <div class="us" style="display:none"><img src="images/img_1.jpg" class="us">HHGS - Just ONE initial away from being famous!</div>
+  <div>
+    <img id="pokemon" class="container" src="img/loading.gif">
+  </div>
+  <div class="search-details container">
+
+  </div>
+  <div class="us container" style="display:none"><img src="images/img_1.jpg" class="us">HHGS - Just ONE initial away from being famous!</div>
   <span id="searchHistory" class="container">Search History: </span>
 
 
   <!-- div for the map image -->
   <div id="map" class="container"></div>
 
-  <!-- footer -->
-  <!-- <div class="footer">
-    <p>Heath, Hector, George and Sunitha <strong>For Final Project 301</strong>.</p>
-    <div class="icons">
-      <a href="#" class="fa fa-github"></a>
-      <a href="#" class="fa fa-linkedin"></a>
-      <a href="#" class="fa fa-facebook"></a>
-      <a href="#" class="fa fa-twitter"></a>
-    </div>
-  </div> -->
 
   <script async defer src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCFvCBTC4gncWVqiOHfjbPWRQsmI9DXFP4&libraries=places"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
