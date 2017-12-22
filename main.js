@@ -11,11 +11,12 @@ let statusD = false;
 localStorage.setItem("searchHistory",'');
 let searchResults = [];
 
-function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl,ed) {
+function SearchResultsObject(name, add, openh, dis, duration, ele, rating, elecomp, imgUrl,ed) {
   this.name = name;
   this.address = add;
   this.openhrs = openh
   this.distance = dis;
+  this.duration = duration;
   this.elevation = ele;
   this.rating = rating;
   this.elevationcomp = elecomp;
@@ -91,7 +92,7 @@ function processResults(results, status) {
         lat: results[i].geometry.location.lat(),
         lng: results[i].geometry.location.lng()
       })
-      searchResults.push(new SearchResultsObject(results[i].name, results[i].vicinity, null, 0, 0, results[i].rating,0));
+      searchResults.push(new SearchResultsObject(results[i].name, results[i].vicinity, null, 0, 0, 0, results[i].rating,0));
       searchResults[i].imgUrl = (results[i].photos) ? results[i].photos[0].getUrl({maxWidth: 1000}) : 'img/error.gif';
       searchResults[i].openhrs = (results[i].opening_hours) ? results[i].opening_hours : 'Not Available';
     }
@@ -137,6 +138,7 @@ function distanceLocation(distance) {
       unitSystem: google.maps.UnitSystem.IMPERIAL,
     }, function(results, err){
       searchResults[i].distance =  Number((results.rows[0].elements[0].distance.text).substr(0,(results.rows[0].elements[0].distance.text).length-3));
+      searchResults[i].duration =  Number((results.rows[0].elements[0].duration.text).substr(0,(results.rows[0].elements[0].duration.text).length-5));
       if (i == searchResults.length) {statusD = true;} ;
     })
   }
@@ -150,19 +152,20 @@ function displayLocationElevation(elevator) {
       locations: [des[i]],
     }, function(response, err){
       searchResults[i].elevation =  Math.floor(response[0].elevation*3.28);
-      searchResults[i].elevationcomp =  Math.abs(searchResults[i].elevation - elevPos);
+      searchResults[i].elevationcomp =  searchResults[i].elevation - elevPos;
       if (i == searchResults.length) {statusE = true;} ;
     });
   }
   return statusE;
 }
 
+// applying Naismiths formula
 function equivdistCalc() {
   for (let i = 0; i < searchResults.length; i++) {
-    let naismith_ed = ((((searchResults[i].distance*1.6) + (7.92*(searchResults[i].elevationcomp*.3048/1000))))*0.62);
+    let naismith_ed = ((((searchResults[i].distance*1.6) + (7.92*Math.abs(searchResults[i].elevationcomp*.3048/1000))))*0.62);
     searchResults[i].equivdist = Number(naismith_ed.toPrecision(2));
   }
-  searchResults.sort((a, b) => {return a.equivdist - b.equivdist;})
+  searchResults.sort((a, b) => {return a.equivdist - b.equivdist;});
 
   accordPopulate();
   checkSearchResultIsNone();
