@@ -42,7 +42,6 @@ $('#search-btn').on('click', function(){
   loadingScreen();
 })
 
-
 // the hamburger MENU
 $(document).ready(function(){
   $('.hamburger-shell').click(function(){
@@ -66,6 +65,3 @@ $(".about").on('click', function(){
   $('.container').hide();
   $('.us').fadeIn(1000);
 })
-
-
-
