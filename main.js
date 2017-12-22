@@ -6,8 +6,8 @@ let pos = {};
 let des = [];
 let elevPos = {};
 
+let searchHistory = [];
 let searchResults = [];
-
 
 function SearchResultsObject(name, add, openh, dis, ele, rating, elecomp, imgUrl,ed) {
   this.name = name;
@@ -60,6 +60,10 @@ function initMap(e) {
           keyword: [$('#search').val()]// search by keyword
         };
 
+        searchHistory.push($('#search').val());
+        localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+        $('#searchHistory').append(JSON.parse(localStorage.getItem('searchHistory')));
+
         let service = new google.maps.places.PlacesService(map);
         service.nearbySearch(request, processResults);
 
@@ -95,7 +99,7 @@ function processResults(results, status) {
   let elevator = new google.maps.ElevationService;
   let statusE = displayLocationElevation(elevator);
 
-  setTimeout(equivdistCalc, 500);
+  setTimeout(equivdistCalc, 1000);
 }
 
 function centerMarker() {
@@ -152,6 +156,7 @@ function displayLocationElevation(elevator) {
   return statusE;
 }
 
+
 function equivdistCalc() {
   for (let i = 0; i < searchResults.length; i++) {
     let naismith_ed = ((((searchResults[i].distance*1.6) + (7.92*(searchResults[i].elevationcomp*.3048/1000))))*0.62);
@@ -160,7 +165,7 @@ function equivdistCalc() {
   searchResults.sort((a, b) => {
     return a.equivdist - b.equivdist;
   })
-  setTimeout(accordPopulate, 500);
+  setTimeout(accordPopulate, 1000);
 }
 // this functions tell you if you are allowed the GPS to be accessed.
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -169,4 +174,5 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     'Error: The Geolocation service failed.' :
     'Error: Your browser doesn\'t support geolocation.');
   infoWindow.open(map);
+
 }

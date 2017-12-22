@@ -91,5 +91,6 @@ function mapCreate(){
     ]
   });
 
+
   infoWindow = new google.maps.InfoWindow();
 }
